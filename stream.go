@@ -118,7 +118,7 @@ func parseStreamID(id string) ([2]uint64, error) {
 	if err != nil {
 		return res, errors.New(msgInvalidStreamID)
 	}
-	if len(parts) == 2 {
+	if len(parts) == 2 && parts[1] != "*" {
 		res[1], err = strconv.ParseUint(parts[1], 10, 64)
 		if err != nil {
 			return res, errors.New(msgInvalidStreamID)
